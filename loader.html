@@ -1,0 +1,38 @@
+<html>
+    <head>
+
+        <script src="js/loader.js"></script>
+
+
+    </head>
+    <body>
+
+
+        <div class="text">
+            <h1>Hello</h1>
+        </div>
+          <script>
+            var style = {
+                style:{
+                    "1,4":{
+                        bg:"black"
+                    }
+                },
+                only:"fill"
+            };
+
+            var url = location.href;
+            if(url.includes("?")){
+                let doParam = parseInt(url.split("?")[1]);
+                let loader = new LoaderJs(doParam,style);
+                loader.show();
+            }
+
+            //loader.hide();
+            //showLoader();
+          </script>
+
+
+
+    </body>
+</html>
