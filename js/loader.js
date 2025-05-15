@@ -4,8 +4,8 @@
  * loaderJs library for animeJs
  * Released under the MIT license
  * EXAMPLE
- *                 style:{
-                    1:{
+ *               style:{
+                    1:{ // or "1,2" or so for multiple target
                         bg:"#FC1460",
                         bd:"#FC1460"
                     },
@@ -21,6 +21,13 @@
                         bg:"#FBF38C",
                         bd:'#FBF38C'
                     }
+                },
+                only:"fill", // or border
+                size:"20", // meaning height and width 20px
+                color:"#fff", // text color
+                fill:"#000", // general or default fill color
+                border:"#000" // general or default border color
+
 
                 },
  */
@@ -108,6 +115,7 @@ class LoaderJs {
         var fill = false;
         var excludeFill = {};
         var excludeBorder = {};
+        var customsize = '';
         
 
         for (let key in obj) {
@@ -209,6 +217,11 @@ class LoaderJs {
                 case'border':
                     border = obj[key];
                 break;
+                case'size':
+                    customsize = "height: "+obj[key]+"px !important;";
+                    customsize += "width: "+obj[key]+"px !important;";
+                   // console.log(customsize);
+                break;
                 case 'fill':
                     fill = obj[key];
                 break;
@@ -294,10 +307,9 @@ class LoaderJs {
                                     box-sizing: border-box;
                                     margin: 0;
                                     padding: 0;
-                                    font-family: Arial, sans-serif;
                                 }
 
-                                .center{
+                                .loaderJs.center{
                                     display: flex;
                                     justify-content: center;
                                     position: absolute;
@@ -315,7 +327,7 @@ class LoaderJs {
 
                             /*one*/
 
-                                .one  .circle {
+                                .loaderJs.one  .circle {
                                     display: inline-block;
                                     width: 32px;
                                     height: 32px;
@@ -323,29 +335,29 @@ class LoaderJs {
                                     margin: 0 var(--borderwidth);
                                 }
                                 
-                                .one  .circle-1 {
+                                .loaderJs.one  .circle-1 {
                                     background-color:var(--one);
                                     border: var(--borderwidth) solid var(--borderone);
                                 }
 
-                                .one .circle-2 {
+                                .loaderJs.one .circle-2 {
                                     background-color:var(--two);
                                     border: var(--borderwidth) solid var(--bordertwo);
                                 }
 
-                                .one .circle-3 {
+                                .loaderJs.one .circle-3 {
                                     background-color:var(--three);
                                     border: var(--borderwidth) solid var(--borderthree);
                                 }
 
-                                .one .circle-4 {
+                                .loaderJs.one .circle-4 {
                                     background-color:var(--four);
                                     border: var(--borderwidth) solid var(--borderfour);
                                 }
                             /*one*/
 
                             /*two*/
-                                .two .circle {
+                                .loaderJs.two .circle {
                                     width: 50px;
                                     height: 50px;
                                     display: inline-block;
@@ -354,13 +366,13 @@ class LoaderJs {
                                     box-shadow: 0 -5px 5px 1px rgba(0,0,0,0.2);
                                 }
 
-                                .two  .circle-1 {
+                                .loaderJs.two  .circle-1 {
                                     background-color: var(--one);
                                     border: var(--borderwidth) solid var(--borderone);
                                     background: linear-gradient(tint(#ffc300, -100%), tint(#ffc300, 20%));
                                 }
 
-                                .two .circle-2 {
+                                .loaderJs.two .circle-2 {
                                     background-color: var(--two);
                                     border: var(--borderwidth) solid var(--bordertwo);
                                     background: linear-gradient(tint(#ff004b, -10%), tint(#ff004b, 30%));
@@ -370,12 +382,12 @@ class LoaderJs {
 
                             /*three*/
 
-                            .three .item3{
+                            .loaderJs.three .item3{
                                 width:100%;
                                 height:100%;
                                 display:grid;
                                 place-items:center;
-                                svg{
+                               .loaderJs svg{
                                     fill:var(--one);
                                     circle:nth-child(1){
                                         fill:var(--one);
@@ -403,54 +415,54 @@ class LoaderJs {
                             /*four*/
 
 
-                            .four .item1{
+                            .loaderJs.four .item1{
                                 width:100%;
                                 height:100%;
                                 display:grid;
                                 place-items:center;
                             }
-                            .four .item1 svg {
+                            .loaderJs.four .item1 svg {
                                 fill: var(--one);
                             }
 
-                            .four .item1 circle:nth-child(1) {
+                            .loaderJs.four .item1 circle:nth-child(1) {
                                 fill: var(--one);
                                 stroke: var(--borderone);
                                 filter: drop-shadow(0 0 5px #1d355788);
                             }
 
-                            .four .item1 circle:nth-child(2) {
+                            .loaderJs.four .item1 circle:nth-child(2) {
                                 fill: var(--two);
                                 stroke: var(--bordertwo);
                                 filter: drop-shadow(0 0 5px #1d355788);
                             }
-                            .four .item1 circle:nth-child(3) {
+                            .loaderJs.four .item1 circle:nth-child(3) {
                                 fill: var(--three);
                                 stroke: var(--borderthree);
                                 filter: drop-shadow(0 0 5px #1d355788);
                             }
-                            .four .item1 circle:nth-child(4) {
+                            .loaderJs.four .item1 circle:nth-child(4) {
                                 fill: var(--four);
                                 stroke: var(--borderfour);
                                 filter: drop-shadow(0 0 5px #1d355788);
                             }
-                            .four .item1 circle:nth-child(5) {
+                            .loaderJs.four .item1 circle:nth-child(5) {
                                 fill: var(--one);
                                 stroke: var(--borderone);
                                 filter: drop-shadow(0 0 5px #1d355788);
                             }
 
-                            .four .item1 circle:nth-child(6) {
+                            .loaderJs.four .item1 circle:nth-child(6) {
                                 fill: var(--two);
                                 stroke: var(--bordertwo);
                                 filter: drop-shadow(0 0 5px #1d355788);
                             }
-                            .four .item1 circle:nth-child(7) {
+                            .loaderJs.four .item1 circle:nth-child(7) {
                                 fill: var(--three);
                                 stroke: var(--borderthree);
                                 filter: drop-shadow(0 0 5px #1d355788);
                             }
-                            .four .item1 circle:nth-child(8) {
+                            .loaderJs.four .item1 circle:nth-child(8) {
                                 fill: var(--four);
                                 stroke: var(--borderfour);
                                 filter: drop-shadow(0 0 5px #1d355788);
@@ -460,22 +472,22 @@ class LoaderJs {
 
                             /*five*/
 
-                            .five .item4{
+                            .loaderJs.five .item4{
                                 width:100%;
                                 height:100%;
                                 display:grid;
                                 place-items:center;
                             }
-                                .five .item svg {
+                                .loaderJs.five .item svg {
                                     fill: var(--one);
                                 }
-                                .five .item circle:nth-child(1) {
+                                .loaderJs.five .item circle:nth-child(1) {
                                     fill: var(--one);
                                     stroke: var(--borderone);
                                     filter: drop-shadow(0 0 5px #1d355788);
                                 }
 
-                                .five .item circle:nth-child(2) {
+                                .loaderJs.five .item circle:nth-child(2) {
                                     fill: var(--two);
                                     stroke: var(--bordertwo);
                                     filter: drop-shadow(0 0 5px #1d355788);
@@ -485,7 +497,7 @@ class LoaderJs {
                             /*six*/
 
 
-                            .six .item5{
+                            .loaderJs.six .item5{
                                 width:100%;
                                 height:100%;
                                 display:grid;
@@ -503,29 +515,29 @@ class LoaderJs {
                                     font-family:'Montserrat Alternates',sans-serif
                                 }
                             }
-                                svg{
+                               .loaderJs svg{
                                     position:relative;
                                     fill:var(--one);
                                 }
-                                .six .item circle:nth-child(1) {
+                                .loaderJs.six .item circle:nth-child(1) {
                                     fill: var(--one);
                                     stroke: var(--borderone);
                                     filter: drop-shadow(0 0 5px #1d355788);
                                 }
 
-                                .six .item circle:nth-child(2) {
+                                .loaderJs.six .item circle:nth-child(2) {
                                     fill: var(--two);
                                     stroke: var(--bordertwo);
                                     filter: drop-shadow(0 0 5px #1d355788);
                                 }
 
-                                .six .item circle:nth-child(3) {
+                                .loaderJs.six .item circle:nth-child(3) {
                                     fill: var(--three);
                                     stroke: var(--borderthree);
                                     filter: drop-shadow(0 0 5px #1d355788);
                                 }
 
-                                .six .item circle:nth-child(4) {
+                                .loaderJs.six .item circle:nth-child(4) {
                                     fill: var(--four);
                                     stroke: var(--borderfour);
                                     filter: drop-shadow(0 0 5px #1d355788);
@@ -536,12 +548,12 @@ class LoaderJs {
 
                             /*seven*/
 
-                            .seven .item6{
+                            .loaderJs.seven .item6{
                                     width:100%;
                                     height:100%;
                                     display:grid;
                                     place-items:center;
-                                    svg{
+                                 .loaderJs   svg{
                                         fill:var(--one);
                                         path{
                                             fill:var(--two)
@@ -549,29 +561,29 @@ class LoaderJs {
                                     }
                                 }
 
-                                svg{
+                               .loaderJs svg{
                                     position:relative;
                                     fill:var(--one);
                                 }
-                                .seven .item path:nth-child(1) {
+                                .loaderJs.seven .item path:nth-child(1) {
                                     fill: var(--one);
                                     stroke: var(--borderone);
                                     filter: drop-shadow(0 0 5px #1d355788);
                                 }
 
-                                .seven .item path:nth-child(2) {
+                                .loaderJs.seven .item path:nth-child(2) {
                                     fill: var(--two);
                                     stroke: var(--bordertwo);
                                     filter: drop-shadow(0 0 5px #1d355788);
                                 }
 
-                                .seven .item path:nth-child(3) {
+                                .loaderJs.seven .item path:nth-child(3) {
                                     fill: var(--three);
                                     stroke: var(--borderthree);
                                     filter: drop-shadow(0 0 5px #1d355788);
                                 }
 
-                                .seven .item path:nth-child(4) {
+                                .loaderJs.seven .item path:nth-child(4) {
                                     fill: var(--four);
                                     stroke: var(--borderfour);
                                     filter: drop-shadow(0 0 5px #1d355788);
@@ -584,25 +596,29 @@ class LoaderJs {
 
                             /*eight*/
 
-                            .eight .box{
+                            .loaderJs.eight .box{
                                 height: 50px;
                                 width: 50px;
                                 border-radius: 50%;
                                 margin: 0 var(--borderwidth);
                             }
-                            .eight .box1{
+                            .loaderJs.eight .box1{
                                 background-color: var(--one);
                                 border: var(--borderwidth) solid var(--borderone);
                             }
-                            .eight .box2{
+                            .loaderJs.eight .box2{
                                 background-color: var(--two);
                                 border: var(--borderwidth) solid var(--bordertwo);
 
                             }
-                            .eight .box3{
+                            .loaderJs.eight .box3{
                                 background-color: var(--three);
                                 border: var(--borderwidth) solid var(--borderthree);
 
+                            }
+
+                            .loaderJs .circle, .box, svg{
+                                ${customsize}
                             }
                 </style>
         `;
@@ -1030,14 +1046,4 @@ class LoaderJs {
         document.querySelector(".loaderJs").style.display='none';
     }
 
-}
-
-function showLoader(num = 1){
-    const loader = new LoaderJs(num);
-    loader.show();
-}
-
-function hideLoader(num =1){
-    const loader=new LoaderJs(num);
-    loader.hide();
 }
